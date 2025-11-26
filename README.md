@@ -20,14 +20,27 @@ Ce site web présente NexusIndusLog et permet aux utilisateurs de télécharger 
 
 ```
 NexusIndusLogWeb/
-├── index.html          # Page d'accueil principale
+├── index.html          # Page d'accueil principale (page par défaut)
 ├── download.html       # Page de téléchargement détaillée
+├── 404.html            # Page d'erreur personnalisée
+├── .nojekyll           # Désactive Jekyll sur GitHub Pages
 ├── styles.css          # Styles CSS (design moderne et responsive)
 ├── script.js           # JavaScript (interactions et animations)
 └── README.md          # Ce fichier
 ```
 
 ## 🚀 Déploiement sur GitHub Pages
+
+### Configuration de la page par défaut
+
+✅ Le fichier `index.html` est automatiquement reconnu comme page par défaut par :
+- GitHub Pages
+- Tous les serveurs web standards (Apache, Nginx, etc.)
+- Les navigateurs locaux
+
+**Fichiers de configuration inclus :**
+- `.nojekyll` : Désactive le traitement Jekyll sur GitHub Pages
+- `404.html` : Page d'erreur personnalisée qui redirige vers l'accueil
 
 ### Méthode automatique
 

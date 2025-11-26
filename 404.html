@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="0; url=./index.html">
+    <title>Redirection - NexusIndusLog</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            text-align: center;
+            padding: 2rem;
+        }
+        .error-content h1 {
+            font-size: 6rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        .error-content h2 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        .error-content p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-page">
+        <div class="error-content">
+            <h1>404</h1>
+            <h2>Page non trouvée</h2>
+            <p>Redirection vers la page d'accueil...</p>
+            <a href="./index.html" class="btn btn-primary">Retour à l'accueil</a>
+        </div>
+    </div>
+    <script>
+        // Redirection automatique après 1 seconde
+        setTimeout(() => {
+            window.location.href = './index.html';
+        }, 1000);
+    </script>
+</body>
+</html>
