@@ -7,12 +7,23 @@
     <title>Redirection - NexusIndusLog</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #2563eb;
+            --dark-bg: #0f172a;
+            --text-color: #e2e8f0;
+            --text-light: #94a3b8;
+        }
+        body {
+            background: var(--dark-bg);
+            color: var(--text-color);
+        }
         .error-page {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
             text-align: center;
             padding: 2rem;
         }
@@ -26,7 +37,7 @@
         }
         .error-content h2 {
             font-size: 2rem;
-            color: var(--dark-color);
+            color: var(--text-color);
             margin-bottom: 1rem;
         }
         .error-content p {

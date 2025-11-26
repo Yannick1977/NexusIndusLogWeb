@@ -10,10 +10,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #2563eb;
+            --dark-bg: #0f172a;
+            --darker-bg: #020617;
+            --card-bg: #1e293b;
+            --text-color: #e2e8f0;
+            --text-light: #94a3b8;
+        }
         .download-page {
             padding: 150px 0 100px;
             min-height: 100vh;
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
         }
 
         .download-header {
@@ -36,11 +45,12 @@
         }
 
         .platform-info {
-            background: var(--white);
+            background: var(--card-bg);
             border-radius: 20px;
             padding: 3rem;
             box-shadow: var(--shadow);
             margin-bottom: 2rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .platform-header {
@@ -49,7 +59,7 @@
             gap: 2rem;
             margin-bottom: 2rem;
             padding-bottom: 2rem;
-            border-bottom: 2px solid rgba(102, 126, 234, 0.1);
+            border-bottom: 2px solid rgba(59, 130, 246, 0.2);
         }
 
         .platform-icon-large {
@@ -64,7 +74,7 @@
 
         .platform-info h2 {
             font-size: 2rem;
-            color: var(--dark-color);
+            color: var(--text-color);
             margin-bottom: 0.5rem;
         }
 
@@ -86,10 +96,10 @@
         }
 
         .download-option {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            background: rgba(59, 130, 246, 0.05);
             padding: 1.5rem;
             border-radius: 15px;
-            border: 2px solid rgba(102, 126, 234, 0.1);
+            border: 2px solid rgba(59, 130, 246, 0.2);
             transition: var(--transition);
         }
 
@@ -101,7 +111,7 @@
         .download-option h4 {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
-            color: var(--dark-color);
+            color: var(--text-color);
         }
 
         .download-option p {
@@ -115,16 +125,17 @@
         }
 
         .system-requirements {
-            background: rgba(102, 126, 234, 0.05);
+            background: rgba(59, 130, 246, 0.08);
             padding: 1.5rem;
             border-radius: 15px;
             margin-bottom: 2rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .system-requirements h3 {
             font-size: 1.3rem;
             margin-bottom: 1rem;
-            color: var(--dark-color);
+            color: var(--text-color);
         }
 
         .requirements-list {
@@ -148,17 +159,18 @@
         }
 
         .installation-guide {
-            background: var(--white);
+            background: var(--card-bg);
             border-radius: 20px;
             padding: 3rem;
             box-shadow: var(--shadow);
             margin-bottom: 3rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .installation-guide h2 {
             font-size: 2rem;
             margin-bottom: 2rem;
-            color: var(--dark-color);
+            color: var(--text-color);
         }
 
         .installation-steps {
@@ -195,7 +207,7 @@
             display: block;
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
-            color: var(--dark-color);
+            color: var(--text-color);
         }
 
         .installation-steps li p {
@@ -204,16 +216,17 @@
         }
 
         .help-section {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            background: rgba(59, 130, 246, 0.08);
             padding: 3rem;
             border-radius: 20px;
             text-align: center;
+            border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .help-section h3 {
             font-size: 1.8rem;
             margin-bottom: 1rem;
-            color: var(--dark-color);
+            color: var(--text-color);
         }
 
         .help-section p {
