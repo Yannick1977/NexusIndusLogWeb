@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Télécharger NexusIndusLog - Solution de gestion industrielle">
+    <title>Télécharger NexusIndusLog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .download-page {
+            padding: 150px 0 100px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+        }
+
+        .download-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .download-header h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .download-header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+
+        .platform-info {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .platform-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .platform-icon-large {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .platform-info h2 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .version-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .download-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .download-option {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 2px solid rgba(102, 126, 234, 0.1);
+            transition: var(--transition);
+        }
+
+        .download-option:hover {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .download-option h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .download-option p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .download-option .btn {
+            width: 100%;
+        }
+
+        .system-requirements {
+            background: rgba(102, 126, 234, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .system-requirements h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .requirements-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .requirements-list li {
+            padding: 0.5rem 0;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .requirements-list li:before {
+            content: "✓";
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .installation-guide {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        .installation-guide h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--dark-color);
+        }
+
+        .installation-steps {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+
+        .installation-steps li {
+            counter-increment: step-counter;
+            margin-bottom: 2rem;
+            padding-left: 4rem;
+            position: relative;
+        }
+
+        .installation-steps li:before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .installation-steps li strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .installation-steps li p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .help-section {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .help-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .help-section p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .help-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .download-page {
+                padding: 120px 0 60px;
+            }
+
+            .download-header h1 {
+                font-size: 2rem;
+            }
+
+            .platform-info,
+            .installation-guide {
+                padding: 2rem;
+            }
+
+            .platform-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>NexusIndusLog</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#accueil" class="nav-link">Accueil</a></li>
+                <li><a href="index.html#fonctionnalites" class="nav-link">Fonctionnalités</a></li>
+                <li><a href="index.html#a-propos" class="nav-link">À propos</a></li>
+                <li><a href="download.html" class="nav-link btn-primary">Télécharger</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Download Page Content -->
+    <div class="download-page">
+        <div class="container">
+            <a href="index.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Retour à l'accueil
+            </a>
+
+            <div class="download-header">
+                <h1>Télécharger NexusIndusLog</h1>
+                <p>Sélectionnez votre plateforme pour commencer</p>
+            </div>
+
+            <!-- Windows Download -->
+            <div class="platform-info" id="windows">
+                <div class="platform-header">
+                    <div class="platform-icon-large">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 6H20V8H4V6ZM4 11H20V13H4V11ZM4 16H20V18H4V16Z" fill="#667eea"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2>Windows</h2>
+                        <span class="version-badge">Version 1.0.0</span>
+                    </div>
+                </div>
+
+                <div class="download-options">
+                    <div class="download-option">
+                        <h4>Installation Complète</h4>
+                        <p>Installateur MSI avec toutes les fonctionnalités</p>
+                        <a href="#" class="btn btn-primary" onclick="alert('Le téléchargement commencera bientôt. Ajoutez votre lien de téléchargement ici.'); return false;">
+                            Télécharger (64-bit)
+                        </a>
+                    </div>
+                    <div class="download-option">
+                        <h4>Version Portable</h4>
+                        <p>Archive ZIP sans installation requise</p>
+                        <a href="#" class="btn btn-secondary" onclick="alert('Le téléchargement commencera bientôt. Ajoutez votre lien de téléchargement ici.'); return false;">
+                            Télécharger ZIP
+                        </a>
+                    </div>
+                </div>
+
+                <div class="system-requirements">
+                    <h3>Configuration Minimale</h3>
+                    <ul class="requirements-list">
+                        <li>Windows 10 (64-bit) ou supérieur</li>
+                        <li>Processeur: Intel Core i3 ou équivalent</li>
+                        <li>Mémoire: 4 GB RAM</li>
+                        <li>Espace disque: 500 MB disponible</li>
+                        <li>.NET Framework 4.7.2 ou supérieur</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- macOS Download -->
+            <div class="platform-info" id="macos">
+                <div class="platform-header">
+                    <div class="platform-icon-large">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.05 20.28C16.63 21.34 15.53 22 14.24 22C12.95 22 11.85 21.34 11.43 20.28L2.97 3.16C2.27 1.79 3.24 0 4.76 0H19.24C20.76 0 21.73 1.79 21.03 3.16L17.05 20.28Z" fill="#667eea"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2>macOS</h2>
+                        <span class="version-badge">Version 1.0.0</span>
+                    </div>
+                </div>
+
+                <div class="download-options">
+                    <div class="download-option">
+                        <h4>Apple Silicon (M1/M2/M3)</h4>
+                        <p>Version optimisée pour les puces Apple</p>
+                        <a href="#" class="btn btn-primary" onclick="alert('Le téléchargement commencera bientôt. Ajoutez votre lien de téléchargement ici.'); return false;">
+                            Télécharger .dmg
+                        </a>
+                    </div>
+                    <div class="download-option">
+                        <h4>Intel</h4>
+                        <p>Pour les Mac avec processeur Intel</p>
+                        <a href="#" class="btn btn-secondary" onclick="alert('Le téléchargement commencera bientôt. Ajoutez votre lien de téléchargement ici.'); return false;">
+                            Télécharger .dmg
+                        </a>
+                    </div>
+                </div>
+
+                <div class="system-requirements">
+                    <h3>Configuration Minimale</h3>
+                    <ul class="requirements-list">
+                        <li>macOS 10.15 Catalina ou supérieur</li>
+                        <li>Processeur: Apple M1 ou Intel Core i5</li>
+                        <li>Mémoire: 4 GB RAM</li>
+                        <li>Espace disque: 500 MB disponible</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Linux Download -->
+            <div class="platform-info" id="linux">
+                <div class="platform-header">
+                    <div class="platform-icon-large">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="#667eea"/>
+                            <circle cx="12" cy="12" r="4" fill="#667eea"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2>Linux</h2>
+                        <span class="version-badge">Version 1.0.0</span>
+                    </div>
+                </div>
+
+                <div class="download-options">
+                    <div class="download-option">
+                        <h4>Debian / Ubuntu</h4>
+                        <p>Package .deb pour distributions Debian</p>
+                        <a href="#" class="btn btn-primary" onclick="alert('Le téléchargement commencera bientôt. Ajoutez votre lien de téléchargement ici.'); return false;">
+                            Télécharger .deb
+                        </a>
+                    </div>
+                    <div class="download-option">
+                        <h4>AppImage</h4>
+                        <p>Format universel pour toutes distributions</p>
+                        <a href="#" class="btn btn-secondary" onclick="alert('Le téléchargement commencera bientôt. Ajoutez votre lien de téléchargement ici.'); return false;">
+                            Télécharger AppImage
+                        </a>
+                    </div>
+                    <div class="download-option">
+                        <h4>Snap</h4>
+                        <p>Installation via Snap Store</p>
+                        <a href="#" class="btn btn-secondary" onclick="alert('Le téléchargement commencera bientôt. Ajoutez votre lien de téléchargement ici.'); return false;">
+                            Installer via Snap
+                        </a>
+                    </div>
+                </div>
+
+                <div class="system-requirements">
+                    <h3>Configuration Minimale</h3>
+                    <ul class="requirements-list">
+                        <li>Ubuntu 20.04, Debian 10 ou distribution équivalente</li>
+                        <li>Processeur: 64-bit dual-core</li>
+                        <li>Mémoire: 4 GB RAM</li>
+                        <li>Espace disque: 500 MB disponible</li>
+                        <li>GTK+ 3.0 ou supérieur</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Installation Guide -->
+            <div class="installation-guide">
+                <h2>Guide d'Installation</h2>
+                <ol class="installation-steps">
+                    <li>
+                        <strong>Télécharger</strong>
+                        <p>Choisissez le package approprié pour votre système d'exploitation et téléchargez-le.</p>
+                    </li>
+                    <li>
+                        <strong>Vérifier l'intégrité</strong>
+                        <p>Optionnel mais recommandé : vérifiez le checksum du fichier téléchargé pour garantir son authenticité.</p>
+                    </li>
+                    <li>
+                        <strong>Installer</strong>
+                        <p>Exécutez l'installateur et suivez les instructions à l'écran. Les droits administrateur peuvent être requis.</p>
+                    </li>
+                    <li>
+                        <strong>Configurer</strong>
+                        <p>Au premier lancement, configurez vos préférences et connectez-vous à votre base de données si nécessaire.</p>
+                    </li>
+                    <li>
+                        <strong>Profiter</strong>
+                        <p>NexusIndusLog est prêt à l'emploi ! Consultez la documentation pour découvrir toutes les fonctionnalités.</p>
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Help Section -->
+            <div class="help-section">
+                <h3>Besoin d'aide ?</h3>
+                <p>Notre communauté et notre documentation sont là pour vous accompagner</p>
+                <div class="help-links">
+                    <a href="https://github.com/Yannick1977/NexusIndusLogWeb/wiki" target="_blank" class="btn btn-primary">
+                        Documentation
+                    </a>
+                    <a href="https://github.com/Yannick1977/NexusIndusLogWeb/issues" target="_blank" class="btn btn-secondary">
+                        Signaler un problème
+                    </a>
+                    <a href="https://github.com/Yannick1977/NexusIndusLogWeb/discussions" target="_blank" class="btn btn-secondary">
+                        Forum de discussion
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>NexusIndusLog</h3>
+                    <p>Solution moderne de gestion industrielle.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#fonctionnalites">Fonctionnalités</a></li>
+                        <li><a href="download.html">Télécharger</a></li>
+                        <li><a href="https://github.com/Yannick1977/NexusIndusLogWeb" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="https://github.com/Yannick1977/NexusIndusLogWeb/wiki" target="_blank">Documentation</a></li>
+                        <li><a href="https://github.com/Yannick1977/NexusIndusLogWeb/issues" target="_blank">Signaler un bug</a></li>
+                        <li><a href="https://github.com/Yannick1977/NexusIndusLogWeb/discussions" target="_blank">Communauté</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Restez Connecté</h4>
+                    <div class="social-links">
+                        <a href="https://github.com/Yannick1977/NexusIndusLogWeb" target="_blank" aria-label="GitHub">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.37 0 0 5.37 0 12C0 17.31 3.435 21.795 8.205 23.385C8.805 23.49 9.03 23.13 9.03 22.815C9.03 22.53 9.015 21.585 9.015 20.58C6 21.135 5.22 19.845 4.98 19.17C4.845 18.825 4.26 17.76 3.75 17.475C3.33 17.25 2.73 16.695 3.735 16.68C4.68 16.665 5.355 17.55 5.58 17.91C6.66 19.725 8.385 19.215 9.075 18.9C9.18 18.12 9.495 17.595 9.84 17.295C7.17 16.995 4.38 15.96 4.38 11.37C4.38 10.065 4.845 8.985 5.61 8.145C5.49 7.845 5.07 6.615 5.73 4.965C5.73 4.965 6.735 4.65 9.03 6.195C9.99 5.925 11.01 5.79 12.03 5.79C13.05 5.79 14.07 5.925 15.03 6.195C17.325 4.635 18.33 4.965 18.33 4.965C18.99 6.615 18.57 7.845 18.45 8.145C19.215 8.985 19.68 10.05 19.68 11.37C19.68 15.975 16.875 16.995 14.205 17.295C14.64 17.67 15.015 18.39 15.015 19.515C15.015 21.12 15 22.41 15 22.815C15 23.13 15.225 23.505 15.825 23.385C20.565 21.795 24 17.295 24 12C24 5.37 18.63 0 12 0Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NexusIndusLog. Projet open source sous licence MIT.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
