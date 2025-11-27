@@ -1,48 +1,45 @@
 # NexusIndusLogWeb
 
-Site web officiel pour NexusIndusLog - Solution de gestion industrielle moderne et performante.
+Site web officiel pour NexusIndusLog - Solution de collecte, historisation et visualisation de données industrielles.
 
 ## 🌐 À propos
 
-Ce site web présente NexusIndusLog et permet aux utilisateurs de télécharger le logiciel. Il est conçu pour être simple, élégant et entièrement responsive.
+NexusIndusLog est un outil permettant de :
+- **Se connecter à des équipements industriels** via différents protocoles
+- **Historiser les données** collectées en temps réel
+- **Visualiser les variables** en temps réel et dans l'historique
 
-## ✨ Fonctionnalités du site
+Ce site web présente NexusIndusLog et permet aux utilisateurs de télécharger le logiciel.
 
-- **Page d'accueil** avec présentation du logiciel
-- **Section fonctionnalités** détaillant les capacités du logiciel
-- **Section téléchargement** pour toutes les plateformes (Windows, macOS, Linux)
-- **Page dédiée** aux téléchargements avec guides d'installation
-- **Design moderne** et responsive (mobile, tablette, desktop)
-- **Animations fluides** et expérience utilisateur optimisée
-- **Prêt pour GitHub Pages** - déploiement facile
+## ✨ Fonctionnalités du logiciel
+
+- **Collecte multi-équipements** : Connexion simultanée à plusieurs équipements industriels
+- **Export de données** : Export en plusieurs formats (CSV, Excel, JSON)
+- **Visualisation temps réel & historique** : Graphiques dynamiques et analyse des tendances
 
 ## 📁 Structure du projet
 
 ```
 NexusIndusLogWeb/
-├── index.html          # Page d'accueil principale (page par défaut)
+├── index.html          # Page d'accueil principale
 ├── download.html       # Page de téléchargement détaillée
 ├── 404.html            # Page d'erreur personnalisée
 ├── .nojekyll           # Désactive Jekyll sur GitHub Pages
-├── styles.css          # Styles CSS (design moderne et responsive)
+├── styles.css          # Styles CSS (thème sombre bleu)
 ├── script.js           # JavaScript (interactions et animations)
-└── README.md          # Ce fichier
+└── README.md           # Ce fichier
 ```
+
+## 💻 Plateformes supportées
+
+| Plateforme | Version | Configuration requise |
+|------------|---------|----------------------|
+| Windows | 25.0 | Windows 10/11 (64-bit) |
+| Linux Ubuntu | 25.0 | Ubuntu 20.04+ |
 
 ## 🚀 Déploiement sur GitHub Pages
 
-### Configuration de la page par défaut
-
-✅ Le fichier `index.html` est automatiquement reconnu comme page par défaut par :
-- GitHub Pages
-- Tous les serveurs web standards (Apache, Nginx, etc.)
-- Les navigateurs locaux
-
-**Fichiers de configuration inclus :**
-- `.nojekyll` : Désactive le traitement Jekyll sur GitHub Pages
-- `404.html` : Page d'erreur personnalisée qui redirige vers l'accueil
-
-### Méthode automatique
+### Configuration
 
 1. Allez dans **Settings** de votre dépôt GitHub
 2. Dans le menu latéral, cliquez sur **Pages**
@@ -51,8 +48,6 @@ NexusIndusLogWeb/
 5. Votre site sera disponible à : `https://yannick1977.github.io/NexusIndusLogWeb/`
 
 ### Test local
-
-Pour tester le site localement avant le déploiement :
 
 ```bash
 # Option 1 : Avec Python
@@ -69,16 +64,18 @@ Puis ouvrez votre navigateur à : `http://localhost:8000`
 
 ## 🎨 Personnalisation
 
-### Modifier les couleurs
+### Thème de couleurs (Sombre bleu)
 
-Éditez les variables CSS dans `styles.css` :
+Les variables CSS dans `styles.css` :
 
 ```css
 :root {
-    --primary-color: #667eea;
-    --secondary-color: #764ba2;
-    --dark-color: #1a202c;
-    /* ... */
+    --primary-color: #3b82f6;
+    --secondary-color: #2563eb;
+    --accent-color: #60a5fa;
+    --dark-bg: #0f172a;
+    --darker-bg: #020617;
+    --card-bg: #1e293b;
 }
 ```
 
@@ -87,17 +84,11 @@ Puis ouvrez votre navigateur à : `http://localhost:8000`
 Dans `download.html`, remplacez les `#` par vos vrais liens :
 
 ```html
-<a href="https://github.com/Yannick1977/NexusIndusLog/releases/download/v1.0.0/setup.exe" 
+<a href="https://github.com/Yannick1977/NexusIndusLog/releases/download/v25.0/setup.exe" 
    class="btn btn-primary">
     Télécharger (64-bit)
 </a>
 ```
-
-### Modifier le contenu
-
-- **Textes** : Éditez directement dans `index.html` et `download.html`
-- **Images** : Ajoutez vos images dans un dossier `/images` et référencez-les
-- **Sections** : Ajoutez/supprimez des sections selon vos besoins
 
 ## 📱 Responsive Design
 
@@ -113,32 +104,6 @@ Le site est optimisé pour tous les appareils :
 - **JavaScript** - Interactions et animations
 - **Google Fonts** - Police Inter
 
-## 📝 À faire après déploiement
-
-1. ✅ Ajouter vos vrais fichiers de téléchargement (releases GitHub)
-2. ✅ Personnaliser les textes selon votre logiciel
-3. ✅ Ajouter des captures d'écran du logiciel
-4. ✅ Configurer Google Analytics (optionnel)
-5. ✅ Ajouter un fichier `CNAME` si vous utilisez un domaine personnalisé
-6. ✅ Créer une section documentation ou wiki
-
-## 🔒 Sécurité
-
-- Pas de dépendances externes (sauf Google Fonts)
-- Code statique - pas de backend requis
-- Hébergement sécurisé via GitHub Pages (HTTPS)
-
-## 📄 Licence
-
-Ce site web est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
-
-## 🤝 Contribution
-
-Les contributions sont les bienvenues ! N'hésitez pas à :
-- Ouvrir une issue pour signaler un bug
-- Proposer des améliorations
-- Soumettre une pull request
-
 ## 📞 Support
 
 - **Documentation** : [GitHub Wiki](https://github.com/Yannick1977/NexusIndusLogWeb/wiki)
@@ -147,4 +112,4 @@ Les contributions sont les bienvenues ! N'hésitez pas à :
 
 ---
 
-Développé avec ❤️ pour la communauté NexusIndusLog
+© 2025 NexusIndusLog. Tous droits réservés.
