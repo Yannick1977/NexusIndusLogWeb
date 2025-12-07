@@ -44,36 +44,48 @@
             color: var(--text-light);
         }
 
-        .platform-info {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: var(--shadow);
-            margin-bottom: 2rem;
-            border: 1px solid rgba(59, 130, 246, 0.2);
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto 4rem;
         }
 
-        .platform-header {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 2px solid rgba(59, 130, 246, 0.2);
+        @media (max-width: 768px) {
+            .platforms-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .platform-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 2px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .platform-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.2);
         }
 
         .platform-icon-large {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1));
             border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0 auto 1.5rem;
         }
 
-        .platform-info h2 {
-            font-size: 2rem;
+        .platform-card h2 {
+            font-size: 1.8rem;
             color: var(--text-color);
             margin-bottom: 0.5rem;
         }
@@ -81,61 +93,59 @@
         .version-badge {
             display: inline-block;
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
+            color: white;
             padding: 0.3rem 1rem;
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: 600;
-        }
-
-        .download-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .download-option {
-            background: rgba(59, 130, 246, 0.05);
-            padding: 1.5rem;
-            border-radius: 15px;
-            border: 2px solid rgba(59, 130, 246, 0.2);
-            transition: var(--transition);
-        }
-
-        .download-option:hover {
-            border-color: var(--primary-color);
-            box-shadow: var(--shadow);
-        }
-
-        .download-option h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
-        }
-
-        .download-option p {
-            color: var(--text-light);
             margin-bottom: 1rem;
-            font-size: 0.95rem;
         }
 
-        .download-option .btn {
+        .platform-card .requirements {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .platform-card .btn {
             width: 100%;
         }
 
         .system-requirements {
-            background: rgba(59, 130, 246, 0.08);
-            padding: 1.5rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
             border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
-        .system-requirements h3 {
+        .system-requirements h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .requirements-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .requirements-column h3 {
             font-size: 1.3rem;
             margin-bottom: 1rem;
-            color: var(--text-color);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .requirements-list {
@@ -155,64 +165,6 @@
             content: "✓";
             color: var(--primary-color);
             font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .installation-guide {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: var(--shadow);
-            margin-bottom: 3rem;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-        }
-
-        .installation-guide h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: var(--text-color);
-        }
-
-        .installation-steps {
-            counter-reset: step-counter;
-            list-style: none;
-            padding: 0;
-        }
-
-        .installation-steps li {
-            counter-increment: step-counter;
-            margin-bottom: 2rem;
-            padding-left: 4rem;
-            position: relative;
-        }
-
-        .installation-steps li:before {
-            content: counter(step-counter);
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 2.5rem;
-            height: 2.5rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .installation-steps li strong {
-            display: block;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
-        }
-
-        .installation-steps li p {
-            color: var(--text-light);
-            line-height: 1.8;
         }
 
         .help-section {
@@ -221,6 +173,8 @@
             border-radius: 20px;
             text-align: center;
             border: 1px solid rgba(59, 130, 246, 0.2);
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .help-section h3 {
@@ -250,7 +204,7 @@
             text-decoration: none;
             font-weight: 600;
             margin-bottom: 2rem;
-            transition: var(--transition);
+            transition: all 0.3s ease;
         }
 
         .back-link:hover {
@@ -264,16 +218,6 @@
 
             .download-header h1 {
                 font-size: 2rem;
-            }
-
-            .platform-info,
-            .installation-guide {
-                padding: 2rem;
-            }
-
-            .platform-header {
-                flex-direction: column;
-                text-align: center;
             }
         }
     </style>
@@ -314,182 +258,96 @@
                 <p>Select your platform to get started</p>
             </div>
 
-            <!-- Windows Download -->
-            <div class="platform-info" id="windows">
-                <div class="platform-header">
+            <!-- Platforms Grid -->
+            <div class="platforms-grid">
+                <!-- Windows -->
+                <div class="platform-card">
                     <div class="platform-icon-large">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 6H20V8H4V6ZM4 11H20V13H4V11ZM4 16H20V18H4V16Z" fill="#667eea"/>
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 5.5L10.5 4.5V11.5H3V5.5Z" fill="#3b82f6"/>
+                            <path d="M11.5 4.35L21 3V11.5H11.5V4.35Z" fill="#3b82f6"/>
+                            <path d="M3 12.5H10.5V19.5L3 18.5V12.5Z" fill="#3b82f6"/>
+                            <path d="M11.5 12.5H21V21L11.5 19.65V12.5Z" fill="#3b82f6"/>
                         </svg>
                     </div>
-                    <div>
-                        <h2>Windows</h2>
-                        <span class="version-badge">Version 1.0.0</span>
-                    </div>
+                    <h2>Windows</h2>
+                    <span class="version-badge">Version 25.0</span>
+                    <p class="requirements">Windows 10/11 (64-bit)</p>
+                    <a href="https://github.com/Yannick1977/NexusIndusLogWeb/raw/main/Files/NexusIndusLog-Windows-x64.zip" class="btn btn-primary">
+                        Download for Windows
+                    </a>
                 </div>
 
-                <div class="download-options">
-                    <div class="download-option">
-                        <h4>Full Installation</h4>
-                        <p>MSI installer with all features</p>
-                        <a href="#" class="btn btn-primary" onclick="alert('Download will start soon. Add your download link here.'); return false;">
-                            Download (64-bit)
-                        </a>
+                <!-- Linux Ubuntu -->
+                <div class="platform-card">
+                    <div class="platform-icon-large">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="9" stroke="#3b82f6" stroke-width="2" fill="none"/>
+                            <circle cx="12" cy="12" r="4" fill="#3b82f6"/>
+                            <circle cx="8" cy="8" r="1.5" fill="#3b82f6"/>
+                            <circle cx="16" cy="8" r="1.5" fill="#3b82f6"/>
+                            <circle cx="8" cy="16" r="1.5" fill="#3b82f6"/>
+                        </svg>
                     </div>
-                    <div class="download-option">
-                        <h4>Portable Version</h4>
-                        <p>ZIP archive, no installation required</p>
-                        <a href="#" class="btn btn-secondary" onclick="alert('Download will start soon. Add your download link here.'); return false;">
-                            Download ZIP
-                        </a>
-                    </div>
-                </div>
-
-                <div class="system-requirements">
-                    <h3>Minimum Requirements</h3>
-                    <ul class="requirements-list">
-                        <li>Windows 10 (64-bit) or higher</li>
-                        <li>Processor: Intel Core i3 or equivalent</li>
-                        <li>Memory: 4 GB RAM</li>
-                        <li>Disk Space: 500 MB available</li>
-                        <li>.NET Framework 4.7.2 or higher</li>
-                    </ul>
+                    <h2>Linux Ubuntu</h2>
+                    <span class="version-badge">Version 25.0</span>
+                    <p class="requirements">Ubuntu 20.04+</p>
+                    <a href="https://github.com/Yannick1977/NexusIndusLogWeb/raw/main/Files/NexusIndusLog-Ubuntu-x64.tar.gz" class="btn btn-primary">
+                        Download for Ubuntu
+                    </a>
                 </div>
             </div>
 
-            <!-- macOS Download -->
-            <div class="platform-info" id="macos">
-                <div class="platform-header">
-                    <div class="platform-icon-large">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M17.05 20.28C16.63 21.34 15.53 22 14.24 22C12.95 22 11.85 21.34 11.43 20.28L2.97 3.16C2.27 1.79 3.24 0 4.76 0H19.24C20.76 0 21.73 1.79 21.03 3.16L17.05 20.28Z" fill="#667eea"/>
-                        </svg>
+            <!-- System Requirements -->
+            <div class="system-requirements">
+                <h2>System Requirements</h2>
+                <div class="requirements-grid">
+                    <div class="requirements-column">
+                        <h3>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 5.5L10.5 4.5V11.5H3V5.5Z" fill="#3b82f6"/>
+                                <path d="M11.5 4.35L21 3V11.5H11.5V4.35Z" fill="#3b82f6"/>
+                                <path d="M3 12.5H10.5V19.5L3 18.5V12.5Z" fill="#3b82f6"/>
+                                <path d="M11.5 12.5H21V21L11.5 19.65V12.5Z" fill="#3b82f6"/>
+                            </svg>
+                            Windows
+                        </h3>
+                        <ul class="requirements-list">
+                            <li>Windows 10/11 (64-bit)</li>
+                            <li>Processor: Intel Core i3 or equivalent</li>
+                            <li>Memory: 4 GB RAM</li>
+                            <li>Disk Space: 500 MB available</li>
+                            <li>.NET Framework 4.7.2 or higher</li>
+                        </ul>
                     </div>
-                    <div>
-                        <h2>macOS</h2>
-                        <span class="version-badge">Version 1.0.0</span>
-                    </div>
-                </div>
-
-                <div class="download-options">
-                    <div class="download-option">
-                        <h4>Apple Silicon (M1/M2/M3)</h4>
-                        <p>Optimized version for Apple chips</p>
-                        <a href="#" class="btn btn-primary" onclick="alert('Download will start soon. Add your download link here.'); return false;">
-                            Download .dmg
-                        </a>
-                    </div>
-                    <div class="download-option">
-                        <h4>Intel</h4>
-                        <p>For Macs with Intel processor</p>
-                        <a href="#" class="btn btn-secondary" onclick="alert('Download will start soon. Add your download link here.'); return false;">
-                            Download .dmg
-                        </a>
-                    </div>
-                </div>
-
-                <div class="system-requirements">
-                    <h3>Minimum Requirements</h3>
-                    <ul class="requirements-list">
-                        <li>macOS 10.15 Catalina or higher</li>
-                        <li>Processor: Apple M1 or Intel Core i5</li>
-                        <li>Memory: 4 GB RAM</li>
-                        <li>Disk Space: 500 MB available</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Linux Download -->
-            <div class="platform-info" id="linux">
-                <div class="platform-header">
-                    <div class="platform-icon-large">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="#667eea"/>
-                            <circle cx="12" cy="12" r="4" fill="#667eea"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h2>Linux</h2>
-                        <span class="version-badge">Version 1.0.0</span>
+                    <div class="requirements-column">
+                        <h3>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="9" stroke="#3b82f6" stroke-width="2" fill="none"/>
+                                <circle cx="12" cy="12" r="4" fill="#3b82f6"/>
+                            </svg>
+                            Linux Ubuntu
+                        </h3>
+                        <ul class="requirements-list">
+                            <li>Ubuntu 20.04 or higher</li>
+                            <li>Processor: 64-bit dual-core</li>
+                            <li>Memory: 4 GB RAM</li>
+                            <li>Disk Space: 500 MB available</li>
+                        </ul>
                     </div>
                 </div>
-
-                <div class="download-options">
-                    <div class="download-option">
-                        <h4>Debian / Ubuntu</h4>
-                        <p>.deb package for Debian distributions</p>
-                        <a href="#" class="btn btn-primary" onclick="alert('Download will start soon. Add your download link here.'); return false;">
-                            Download .deb
-                        </a>
-                    </div>
-                    <div class="download-option">
-                        <h4>AppImage</h4>
-                        <p>Universal format for all distributions</p>
-                        <a href="#" class="btn btn-secondary" onclick="alert('Download will start soon. Add your download link here.'); return false;">
-                            Download AppImage
-                        </a>
-                    </div>
-                    <div class="download-option">
-                        <h4>Snap</h4>
-                        <p>Install via Snap Store</p>
-                        <a href="#" class="btn btn-secondary" onclick="alert('Download will start soon. Add your download link here.'); return false;">
-                            Install via Snap
-                        </a>
-                    </div>
-                </div>
-
-                <div class="system-requirements">
-                    <h3>Minimum Requirements</h3>
-                    <ul class="requirements-list">
-                        <li>Ubuntu 20.04, Debian 10 or equivalent distribution</li>
-                        <li>Processor: 64-bit dual-core</li>
-                        <li>Memory: 4 GB RAM</li>
-                        <li>Disk Space: 500 MB available</li>
-                        <li>GTK+ 3.0 or higher</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Installation Guide -->
-            <div class="installation-guide">
-                <h2>Installation Guide</h2>
-                <ol class="installation-steps">
-                    <li>
-                        <strong>Download</strong>
-                        <p>Choose the appropriate package for your operating system and download it.</p>
-                    </li>
-                    <li>
-                        <strong>Verify Integrity</strong>
-                        <p>Optional but recommended: verify the checksum of the downloaded file to ensure its authenticity.</p>
-                    </li>
-                    <li>
-                        <strong>Install</strong>
-                        <p>Run the installer and follow the on-screen instructions. Administrator rights may be required.</p>
-                    </li>
-                    <li>
-                        <strong>Configure</strong>
-                        <p>On first launch, set up your preferences and connect to your database if needed.</p>
-                    </li>
-                    <li>
-                        <strong>Enjoy</strong>
-                        <p>NexusIndusLog is ready to use! Check out the documentation to discover all features.</p>
-                    </li>
-                </ol>
             </div>
 
             <!-- Help Section -->
             <div class="help-section">
                 <h3>Need Help?</h3>
-                <p>Our community and documentation are here to support you</p>
+                <p>Our documentation is here to support you</p>
                 <div class="help-links">
                     <a href="https://github.com/Yannick1977/NexusIndusLogWeb/wiki" target="_blank" class="btn btn-primary">
                         Documentation
                     </a>
                     <a href="https://github.com/Yannick1977/NexusIndusLogWeb/issues" target="_blank" class="btn btn-secondary">
                         Report an Issue
-                    </a>
-                    <a href="https://github.com/Yannick1977/NexusIndusLogWeb/discussions" target="_blank" class="btn btn-secondary">
-                        Discussion Forum
                     </a>
                 </div>
             </div>
@@ -502,7 +360,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>NexusIndusLog</h3>
-                    <p>Modern industrial management solution.</p>
+                    <p>Industrial data logging and visualization solution.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
@@ -510,7 +368,6 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="index.html#features">Features</a></li>
                         <li><a href="download.html">Download</a></li>
-                        <li><a href="https://github.com/Yannick1977/NexusIndusLogWeb" target="_blank">GitHub</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -518,18 +375,7 @@
                     <ul>
                         <li><a href="https://github.com/Yannick1977/NexusIndusLogWeb/wiki" target="_blank">Documentation</a></li>
                         <li><a href="https://github.com/Yannick1977/NexusIndusLogWeb/issues" target="_blank">Report a Bug</a></li>
-                        <li><a href="https://github.com/Yannick1977/NexusIndusLogWeb/discussions" target="_blank">Community</a></li>
                     </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Stay Connected</h4>
-                    <div class="social-links">
-                        <a href="https://github.com/Yannick1977/NexusIndusLogWeb" target="_blank" aria-label="GitHub">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0C5.37 0 0 5.37 0 12C0 17.31 3.435 21.795 8.205 23.385C8.805 23.49 9.03 23.13 9.03 22.815C9.03 22.53 9.015 21.585 9.015 20.58C6 21.135 5.22 19.845 4.98 19.17C4.845 18.825 4.26 17.76 3.75 17.475C3.33 17.25 2.73 16.695 3.735 16.68C4.68 16.665 5.355 17.55 5.58 17.91C6.66 19.725 8.385 19.215 9.075 18.9C9.18 18.12 9.495 17.595 9.84 17.295C7.17 16.995 4.38 15.96 4.38 11.37C4.38 10.065 4.845 8.985 5.61 8.145C5.49 7.845 5.07 6.615 5.73 4.965C5.73 4.965 6.735 4.65 9.03 6.195C9.99 5.925 11.01 5.79 12.03 5.79C13.05 5.79 14.07 5.925 15.03 6.195C17.325 4.635 18.33 4.965 18.33 4.965C18.99 6.615 18.57 7.845 18.45 8.145C19.215 8.985 19.68 10.05 19.68 11.37C19.68 15.975 16.875 16.995 14.205 17.295C14.64 17.67 15.015 18.39 15.015 19.515C15.015 21.12 15 22.41 15 22.815C15 23.13 15.225 23.505 15.825 23.385C20.565 21.795 24 17.295 24 12C24 5.37 18.63 0 12 0Z"/>
-                            </svg>
-                        </a>
-                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
